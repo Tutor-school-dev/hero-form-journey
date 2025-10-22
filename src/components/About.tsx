@@ -1,78 +1,69 @@
 import { Card } from "@/components/ui/card";
-import { Target, Users } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+    <section id="about" className="py-20 bg-gradient-to-b from-white to-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-            About the Competition
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-foreground">
+            Gitopadesh Global Sloka Competition
           </h2>
-          <p className="text-center text-muted-foreground text-lg mb-12 max-w-2xl mx-auto">
-            A global platform for young minds to connect with ancient wisdom
+          <p className="text-center text-muted-foreground text-lg mb-16">
+            Inspired by the timeless wisdom of the Bhagavad Gita
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Objective Card */}
-            <Card className="p-8 bg-gradient-to-br from-card to-muted/20 border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg group">
-              <div className="flex items-start space-x-4">
-                <div className="bg-primary/10 p-3 rounded-xl group-hover:bg-primary/20 transition-colors">
-                  <Target className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4 text-foreground">Objective</h3>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span>Promote understanding of Bhagavad Gita teachings among youth</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span>Develop memorization and recitation skills</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span>Foster spiritual growth and cultural awareness</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary mr-2">•</span>
-                      <span>Build confidence through public speaking</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          {/* Feature Cards */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <Card className="p-8 text-center bg-gradient-to-br from-white to-secondary/10 border-2 border-secondary/20 hover:shadow-lg transition-all">
+              <h3 className="text-xl font-bold mb-3 text-foreground">For Ages 6-17</h3>
+              <p className="text-muted-foreground">
+                Open to School-going Students Worldwide.<br />
+                <span className="text-sm">(Individual and School Group)</span>
+              </p>
             </Card>
 
-            {/* Eligibility Card */}
-            <Card className="p-8 bg-gradient-to-br from-card to-secondary/5 border-2 border-secondary/20 hover:border-secondary/40 transition-all duration-300 hover:shadow-lg group">
-              <div className="flex items-start space-x-4">
-                <div className="bg-secondary/10 p-3 rounded-xl group-hover:bg-secondary/20 transition-colors">
-                  <Users className="w-6 h-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4 text-foreground">Eligibility</h3>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex items-start">
-                      <span className="text-secondary mr-2">•</span>
-                      <span>Open to children aged 6-17 years</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-secondary mr-2">•</span>
-                      <span>All nationalities welcome to participate</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-secondary mr-2">•</span>
-                      <span>Submit a 3-minute video reciting selected slokas</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-secondary mr-2">•</span>
-                      <span>Video must be in clear audio and video quality</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <Card className="p-8 text-center bg-gradient-to-br from-white to-primary/5 border-2 border-primary/20 hover:shadow-lg transition-all">
+              <h3 className="text-xl font-bold mb-3 text-foreground">3-Minute Video</h3>
+              <p className="text-muted-foreground">
+                Submit a short video reciting and explaining a sloka
+              </p>
             </Card>
+
+            <Card className="p-8 text-center bg-gradient-to-br from-white to-accent/5 border-2 border-accent/20 hover:shadow-lg transition-all">
+              <h3 className="text-xl font-bold mb-3 text-foreground">Exciting Prizes</h3>
+              <p className="text-muted-foreground">
+                Rolling Trophy, Certificates & medals will be given to all winners and runners-up
+              </p>
+            </Card>
+          </div>
+
+          {/* Details Section */}
+          <div id="guidelines" className="space-y-12 pt-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-center mb-8 text-foreground">
+              About the Competition
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-8 bg-white border-2 border-border hover:border-primary/30 transition-all">
+                <h4 className="text-2xl font-semibold mb-4 text-foreground flex items-center">
+                  <span className="text-primary mr-2">•</span>
+                  Objective
+                </h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  To inspire children globally to connect with the timeless wisdom of the Bhagavad Gita by learning, reciting, and reflecting on selected shlokas through a structured and inspiring Global Competition.
+                </p>
+              </Card>
+
+              <Card className="p-8 bg-white border-2 border-border hover:border-primary/30 transition-all">
+                <h4 className="text-2xl font-semibold mb-4 text-foreground flex items-center">
+                  <span className="text-secondary mr-2">•</span>
+                  Eligibility
+                </h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Open to school-going children aged 6 to 17 years. Participants can enter individually or as part of a school team.
+                </p>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
