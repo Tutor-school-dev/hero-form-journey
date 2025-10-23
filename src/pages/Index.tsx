@@ -6,6 +6,7 @@ import Quote from "@/components/Quote";
 import Prizes from "@/components/Prizes";
 import Courses from "@/components/Courses";
 import RegistrationForm from "@/components/RegistrationForm";
+import FloatingSubmitButton from "@/components/FloatingSubmitButton";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Prizes />
       <Courses />
       <RegistrationForm />
+      <FloatingSubmitButton />
     </main>
   );
 };

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Flower2 } from "lucide-react";
+import logo from "@/assets/tutorschool-logo.png";
 
 const Navbar = () => {
   const scrollToSection = (id: string) => {
@@ -13,9 +13,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="bg-gradient-to-br from-secondary to-pink-300 p-2.5 rounded-xl">
-              <Flower2 className="w-6 h-6 text-pink-600" />
-            </div>
+            <img src={logo} alt="TutorSchool" className="h-12 w-auto" />
             <div>
               <div className="font-bold text-lg text-foreground">Gitopadesh</div>
               <div className="text-xs text-muted-foreground">Global Sloka Competition</div>
@@ -50,7 +48,7 @@ const Navbar = () => {
             </button>
             <Button 
               onClick={() => scrollToSection('registration-form')}
-              className="bg-success hover:bg-success/90 text-success-foreground rounded-full px-6"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
             >
               Submit
             </Button>
@@ -59,7 +57,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <Button 
             onClick={() => scrollToSection('registration-form')}
-            className="md:hidden bg-success hover:bg-success/90 text-success-foreground rounded-full px-6"
+            className="md:hidden bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
           >
             Submit
           </Button>
