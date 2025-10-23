@@ -14,8 +14,9 @@ interface FormData {
   parentPhone: string;
   childName: string;
   childAge: string;
+  theme: string;
   videoLink: string;
-  experience: string;
+  slokaRecited: string;
 }
 
 const RegistrationForm = () => {
@@ -26,16 +27,55 @@ const RegistrationForm = () => {
     parentPhone: "",
     childName: "",
     childAge: "",
+    theme: "",
     videoLink: "",
-    experience: ""
+    slokaRecited: ""
   });
   const { toast } = useToast();
 
-  const totalSteps = 3;
+  const totalSteps = 4;
   const progress = (currentStep / totalSteps) * 100;
 
   const updateFormData = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const getThemesByAge = (age: string) => {
+    const ageNum = parseInt(age);
+    if (ageNum >= 6 && ageNum <= 8) {
+      return [
+        "Theme 1: Exploring Inner Potential",
+        "Theme 2: Mastering Your Faculties",
+        "Theme 3: Habit Formation",
+        "Theme 4: Trigunas",
+        "Theme 5: Unity in Diversity"
+      ];
+    } else if (ageNum >= 9 && ageNum <= 11) {
+      return [
+        "Theme 6: Self-Mastery",
+        "Theme 7: Regulation of Mind",
+        "Theme 8: Joyful Actions",
+        "Theme 9: Altruistic Action",
+        "Theme 10: Contentment"
+      ];
+    } else if (ageNum >= 12 && ageNum <= 14) {
+      return [
+        "Theme 11: Conduct",
+        "Theme 12: Attitude Towards Food",
+        "Theme 13: The Seed of All Life Force",
+        "Theme 14: Source of Happiness",
+        "Theme 15: Source of Wisdom"
+      ];
+    } else if (ageNum >= 15 && ageNum <= 17) {
+      return [
+        "Theme 16: The True Friend",
+        "Theme 17: Role of a Guide",
+        "Theme 18: Devotion in Action",
+        "Theme 19: Power of Love",
+        "Theme 20: Complete Harmony"
+      ];
+    }
+    return [];
   };
 
   const validateStep = (step: number): boolean => {
@@ -45,7 +85,9 @@ const RegistrationForm = () => {
       case 2:
         return !!(formData.childName && formData.childAge);
       case 3:
-        return !!(formData.videoLink && formData.experience);
+        return !!formData.theme;
+      case 4:
+        return !!(formData.videoLink && formData.slokaRecited);
       default:
         return false;
     }
@@ -101,7 +143,8 @@ const RegistrationForm = () => {
             <div className="flex justify-between mt-3 text-sm">
               <span className={currentStep >= 1 ? "text-primary font-semibold" : "text-muted-foreground"}>Parent Info</span>
               <span className={currentStep >= 2 ? "text-primary font-semibold" : "text-muted-foreground"}>Child Info</span>
-              <span className={currentStep >= 3 ? "text-primary font-semibold" : "text-muted-foreground"}>Competition Details</span>
+              <span className={currentStep >= 3 ? "text-primary font-semibold" : "text-muted-foreground"}>Theme</span>
+              <span className={currentStep >= 4 ? "text-primary font-semibold" : "text-muted-foreground"}>Video Details</span>
             </div>
           </div>
 
@@ -179,11 +222,49 @@ const RegistrationForm = () => {
                 </div>
               )}
 
-              {/* Step 3: Competition Details */}
+              {/* Step 3: Theme Selection */}
               {currentStep === 3 && (
                 <div className="space-y-6 animate-fade-in">
+                  <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                        <span className="text-purple-600 text-xl">📚</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground">Theme Selection</h3>
+                    </div>
+                  </div>
+                  
                   <div>
-                    <Label htmlFor="videoLink" className="text-base font-medium">Video Submission Link *</Label>
+                    <Label htmlFor="theme" className="text-base font-medium flex items-center gap-2">
+                      <span className="text-purple-600">📖</span>
+                      Select Theme *
+                    </Label>
+                    <Select value={formData.theme} onValueChange={(value) => updateFormData("theme", value)}>
+                      <SelectTrigger className="mt-2 h-12 bg-muted/30 border-2 focus:border-primary">
+                        <SelectValue placeholder="Select a theme" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border-2 z-50 max-h-[300px]">
+                        {formData.childAge && getThemesByAge(formData.childAge).map((theme) => (
+                          <SelectItem key={theme} value={theme}>
+                            {theme}
+                          </SelectItem>
+                        ))}
+                        {!formData.childAge && (
+                          <SelectItem value="none" disabled>
+                            Please select child's age first
+                          </SelectItem>
+                        )}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              )}
+
+              {/* Step 4: Video Details */}
+              {currentStep === 4 && (
+                <div className="space-y-6 animate-fade-in">
+                  <div>
+                    <Label htmlFor="videoLink" className="text-base font-medium">Upload Your Video (Max 3 minutes, 200MB) *</Label>
                     <Input
                       id="videoLink"
                       type="url"
@@ -198,13 +279,13 @@ const RegistrationForm = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="experience" className="text-base font-medium">Previous Experience *</Label>
-                    <Textarea
-                      id="experience"
-                      value={formData.experience}
-                      onChange={(e) => updateFormData("experience", e.target.value)}
-                      placeholder="Tell us about your child's experience with Bhagavad Gita..."
-                      className="mt-2 min-h-[120px] bg-muted/30 border-2 focus:border-primary"
+                    <Label htmlFor="slokaRecited" className="text-base font-medium">Sloka/s recited by participant *</Label>
+                    <Input
+                      id="slokaRecited"
+                      value={formData.slokaRecited}
+                      onChange={(e) => updateFormData("slokaRecited", e.target.value)}
+                      placeholder="e.g., Chapter 2, Verse 47 and Chapter 3, Verse 14"
+                      className="mt-2 h-12 bg-muted/30 border-2 focus:border-primary"
                     />
                   </div>
                 </div>
