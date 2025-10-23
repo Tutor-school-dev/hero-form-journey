@@ -1,22 +1,18 @@
-# Welcome to your Lovable project
+# TutorSchool Hero Form Journey
+
+A React TypeScript landing page for TutorSchool's meditation course registration.
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/490b129f-ce87-4e1a-acda-374120801081
+This is a modern React application built with Vite, TypeScript, and shadcn/ui components.
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/490b129f-ce87-4e1a-acda-374120801081) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -30,7 +26,7 @@ git clone <YOUR_GIT_URL>
 cd <YOUR_PROJECT_NAME>
 
 # Step 3: Install the necessary dependencies.
-npm i
+npm install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
@@ -62,12 +58,14 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/490b129f-ce87-4e1a-acda-374120801081) and click on Share -> Publish.
+This project can be deployed to any static hosting service such as Vercel, Netlify, or GitHub Pages.
 
-## Can I connect a custom domain to my Lovable project?
+To build for production:
 
-Yes, you can!
+```sh
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Can I connect a custom domain?
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Yes, most hosting providers support custom domains. Check your hosting provider's documentation for specific instructions.
